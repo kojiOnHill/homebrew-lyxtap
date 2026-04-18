@@ -1,6 +1,6 @@
-cask "lyx@2.4.4" do
-  version "2.4.4"
-  sha256 "8f92befe0df9da6f251a5a04a8ef536a03a354cfbb4e6f87dd80e76fa92871c0"
+cask "lyx@2.4.5" do
+  version "2.4.5"
+  sha256 "6f64505df9d5cd8016256421ec4316f52dd596b01bcbe6fa7f9fe04f54f4e376"
 
   url "https://ftp.lip6.fr/pub/lyx/bin/#{version.major_minor_patch}/LyX-#{version}+qt5-x86_64-arm64-cocoa.dmg",
       verified: "ftp.lip6.fr/pub/lyx/bin/"

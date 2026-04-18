@@ -1,6 +1,6 @@
 cask "lyx-nodep" do
-  version "2.5.0-RC2"
-  sha256 "17bf681d938e92b4e09a7a7de8b4de0422ef11cec31f45186e659ecd40f009f3"
+  version "2.5.0"
+  sha256 "62149418cdb14b2f3dbebbec13e20c5252f3e2ce1bb0ad8914a4e75b86a41917"
 
   url "https://ftp.lip6.fr/pub/lyx/devel/lyx-#{version.major_minor}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg",
       verified: "ftp.lip6.fr/pub/lyx/devel/"
