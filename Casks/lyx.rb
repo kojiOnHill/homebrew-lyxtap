@@ -19,14 +19,23 @@ cask "lyx" do
     regex(/LyX[._-]v?(\d+(?:\.\d+)+)\+qt5/i)
   end
 
-  app "LyX.app", target: "LyX-#{version}.app"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyx"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxclient"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxconvert"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxeditor"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/maxima", target: "lyx-maxima"
-  binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/tex2lyx"
+  # app "LyX.app", target: "LyX-#{version}.app"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyx"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxclient"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxconvert"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxeditor"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/maxima", target: "lyx-maxima"
+  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/tex2lyx"
+
+  app "LyX.app"
+  binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
+  binary "#{appdir}/LyX.app/Contents/MacOS/lyx"
+  binary "#{appdir}/LyX.app/Contents/MacOS/lyxclient"
+  binary "#{appdir}/LyX.app/Contents/MacOS/lyxconvert"
+  binary "#{appdir}/LyX.app/Contents/MacOS/lyxeditor"
+  binary "#{appdir}/LyX.app/Contents/MacOS/maxima", target: "lyx-maxima"
+  binary "#{appdir}/LyX.app/Contents/MacOS/tex2lyx"
 
   zap trash: [
     "~/Library/Application Support/LyX-#{version.major_minor}",
