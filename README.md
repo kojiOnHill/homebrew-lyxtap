@@ -27,6 +27,8 @@ brew "<formula>"
 - Cancel that dialog.
 - Go to System Settings -> Privacy and Security -> Security, and allow LyX to be opened.
 
+This warning arises because LyX does not sign its binary by paying a fee to Apple. There is an argument whether an open-source application should pay to a profit organization and LyX does not do so at this moment. So, the warning does not directly mean LyX is dangerous but of course you need to accept the risk clause in the license to use it.
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
