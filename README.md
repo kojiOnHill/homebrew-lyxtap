@@ -1,6 +1,6 @@
 # KojiOnHill Lyxtap
 
-The Homebrew's original tap of LyX is disabled on September 1, 2026. This user tap is aimed to be an replacement for it.
+The Homebrew's original tap of LyX is disabled on September 1, 2026. This user tap is aimed to be a replacement for it.
 
 ## How do I install these formulae?
 
