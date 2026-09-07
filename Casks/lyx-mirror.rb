@@ -1,4 +1,4 @@
-cask "lyx" do
+cask "lyx-mirror" do
   version "2.5.2"
   sha256 "329a4f45a04f2585eac7b44722f068fe24722481dcc8521dc284c02161fb2855"
 
