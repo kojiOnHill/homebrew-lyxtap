@@ -21,6 +21,12 @@ tap "kojionhill/lyxtap"
 brew "<formula>"
 ```
 
+## Third, allow LyX to be opened
+
+- After the first trial to open LyX, macOS raises a warning that this application can be potentially dangerous.
+- Cancel that dialog.
+- Go to System Settings -> Privacy and Security -> Security, and allow LyX to be opened.
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
