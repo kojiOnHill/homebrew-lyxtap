@@ -21,7 +21,7 @@ tap "kojionhill/lyxtap"
 brew "<formula>"
 ```
 
-## Third, allow LyX to be opened
+### Third, allow LyX to be opened
 
 - After the first trial to open LyX, macOS raises a warning that this application can be potentially dangerous.
 - Cancel that dialog.
