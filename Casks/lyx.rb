@@ -1,31 +1,23 @@
 cask "lyx" do
-  version "2.5.2"
+  version "2.5.2,6"
   sha256 "329a4f45a04f2585eac7b44722f068fe24722481dcc8521dc284c02161fb2855"
 
-  url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+  url "https://ftp.lip6.fr/pub/lyx/bin/#{version.csv.first.major_minor_patch}/LyX-#{version.csv.first}+qt#{version.csv.second}-x86_64-arm64-cocoa.dmg"
   name "LyX"
   desc "GUI document processor based on the LaTeX typesetting system"
   homepage "https://www.lyx.org/"
 
-  caveats do
-    unsigned_accessibility
-  end
-
-  depends_on cask: [ "mactex", "skim" ]
-
   livecheck do
     url "https://www.lyx.org/Download"
-    regex(/LyX[._-]v?(\d+(?:\.\d+)+)\+qt5/i)
+    regex(/LyX[._-]v?(\d+(?:\.\d+)+)\+qt(\d+)/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
+    end
   end
 
-  # app "LyX.app", target: "LyX-#{version}.app"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyx"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxclient"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxconvert"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxeditor"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/maxima", target: "lyx-maxima"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/tex2lyx"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  depends_on macos: :monterey
 
   app "LyX.app"
   binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
@@ -36,9 +28,11 @@ cask "lyx" do
   binary "#{appdir}/LyX.app/Contents/MacOS/maxima", target: "lyx-maxima"
   binary "#{appdir}/LyX.app/Contents/MacOS/tex2lyx"
 
+  uninstall quit: "org.lyx.lyx"
+
   zap trash: [
     "~/Library/Application Support/LyX-#{version.major_minor}",
-    "~/Library/Caches/com.apple.python/Applications/LyX-#{version}.app",
+    "~/Library/Caches/com.apple.python/Applications/LyX.app",
     "~/Library/Preferences/org.lyx.LyX-#{version.major_minor}.plist",
     "~/Library/Preferences/org.lyx.lyx.plist",
     "~/Library/Saved Application State/org.lyx.lyx.savedState",
