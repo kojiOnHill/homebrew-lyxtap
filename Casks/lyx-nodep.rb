@@ -1,6 +1,6 @@
 cask "lyx-nodep" do
-  version "2.5.2"
-  sha256 "329a4f45a04f2585eac7b44722f068fe24722481dcc8521dc284c02161fb2855"
+  version "2.5.3"
+  sha256 "fd8cf48332bd1efb9e402ee2077816343c759875ba04def7082c3af14daa3943"
 
   url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
   name "LyX"
