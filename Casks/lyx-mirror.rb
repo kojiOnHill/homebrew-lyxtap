@@ -1,16 +1,30 @@
 cask "lyx-mirror" do
   version "2.5.3"
-  sha256 "fd8cf48332bd1efb9e402ee2077816343c759875ba04def7082c3af14daa3943"
 
-  #language "ja" do
-  #  url "https://ftp.yz.yamagata-u.ac.jp/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
-  #end
-  language "en", "ja" do
-    url "https://mirrors.ocf.berkeley.edu/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
-  end
-  language "fr", default:true do
-    url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
-  end
+	on_macos do
+		on_arm do
+			sha256 "fd8cf48332bd1efb9e402ee2077816343c759875ba04def7082c3af14daa3943"
+			#language "ja" do
+			#  url "https://ftp.yz.yamagata-u.ac.jp/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+			#end
+			language "en", "ja" do
+				url "https://mirrors.ocf.berkeley.edu/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+			end
+			language "fr", default:true do
+				url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+			end
+		end
+		on_intel do
+			sha256 "e90961c28009117d69bff728ddf079f3cd14926f7700a16dc4ecb607d5599eec"
+			language "en", "ja" do
+				url "https://mirrors.ocf.berkeley.edu/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-cocoa.dmg"
+			end
+			language "fr", default:true do
+				url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-cocoa.dmg"
+			end
+		end
+	end
+	
   name "LyX"
   desc "GUI document processor based on the LaTeX typesetting system"
   homepage "https://www.lyx.org/"

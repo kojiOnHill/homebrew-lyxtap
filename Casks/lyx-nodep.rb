@@ -1,8 +1,17 @@
 cask "lyx-nodep" do
   version "2.5.3"
-  sha256 "fd8cf48332bd1efb9e402ee2077816343c759875ba04def7082c3af14daa3943"
 
-  url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+	on_macos do
+		on_arm do
+			sha256 "fd8cf48332bd1efb9e402ee2077816343c759875ba04def7082c3af14daa3943"
+			url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt6-x86_64-arm64-cocoa.dmg"
+		end
+		on_intel do
+			sha256 "e90961c28009117d69bff728ddf079f3cd14926f7700a16dc4ecb607d5599eec"
+			url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt5-x86_64-cocoa.dmg"
+		end
+	end
+	
   name "LyX"
   desc "GUI document processor based on the LaTeX typesetting system without dependencies"
   homepage "https://www.lyx.org/"
@@ -15,15 +24,6 @@ cask "lyx-nodep" do
     url "https://www.lyx.org/Download"
     regex(/LyX[._-]v?(\d+(?:\.\d+)+)\+qt5/i)
   end
-
-  # app "LyX.app", target: "LyX-#{version}.app"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyx"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxclient"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxconvert"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/lyxeditor"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/maxima", target: "lyx-maxima"
-  # binary "#{appdir}/LyX-#{version}.app/Contents/MacOS/tex2lyx"
 
   app "LyX.app", target: "LyX.app"
   binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
