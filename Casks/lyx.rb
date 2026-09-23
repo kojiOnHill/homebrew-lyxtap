@@ -11,6 +11,9 @@ cask "lyx" do
 			url "https://ftp.lip6.fr/pub/lyx/bin/#{version}/LyX-#{version.sub(/-RC/,"~RC")}+qt5-x86_64-cocoa.dmg"
 		end
   end
+  on_linux do
+    depends_on "gcc"
+  end
 	
   name "LyX"
   desc "GUI document processor based on the LaTeX typesetting system"
